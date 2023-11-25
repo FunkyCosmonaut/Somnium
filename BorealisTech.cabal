@@ -29,7 +29,10 @@ executable BorealisTech
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:    base ^>=4.15.1.0
+    build-depends:    base ^>=4.17.1.0,
+                        sdl2,
+                        text
+
     hs-source-dirs:   app/src , app/render
-    other-modules:    Math
+    other-modules:    Math , Window
     default-language: Haskell2010
