@@ -3,13 +3,14 @@ module Main where
 import Math
 import Window
 import Keyboard
-import SDL
+import qualified SDL
 import Control.Monad (unless)
 
 mainLoop :: IO ()
 mainLoop = do
     quit <- processEvents
     unless quit $ do
+        --Game logic here
         mainLoop
 
 main :: IO ()
@@ -19,10 +20,10 @@ main = do
     let result = a_Mean [5.0, 7.2, 8.3] 3
     let sumVector = vectorAdd vector1 vector2
 
-    window <- drawWindow
+    somnium <- createWindow
     mainLoop
-    destroyWindow window
-    quit
+    SDL.destroyWindow somnium
+    SDL.quit
 
     print result
     print sumVector

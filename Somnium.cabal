@@ -31,7 +31,8 @@ executable Somnium
     -- other-extensions:
     build-depends:    base ^>=4.17.1.0,
                         sdl2,
-                        text
+                        text,
+                        OpenGL
 
     hs-source-dirs:   app/src , app/render , app/input
     other-modules:    Math , Window, Keyboard

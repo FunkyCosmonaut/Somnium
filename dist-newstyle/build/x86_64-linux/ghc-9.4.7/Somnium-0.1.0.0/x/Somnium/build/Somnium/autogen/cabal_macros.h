@@ -10,6 +10,16 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_Somnium */
+/* package OpenGL-3.0.3.0 */
+#ifndef VERSION_OpenGL
+#define VERSION_OpenGL "3.0.3.0"
+#endif /* VERSION_OpenGL */
+#ifndef MIN_VERSION_OpenGL
+#define MIN_VERSION_OpenGL(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  0 || \
+  (major1) == 3 && (major2) == 0 && (minor) <= 3)
+#endif /* MIN_VERSION_OpenGL */
 /* package base-4.17.2.0 */
 #ifndef VERSION_base
 #define VERSION_base "4.17.2.0"
