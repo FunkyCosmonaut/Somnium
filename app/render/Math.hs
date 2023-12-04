@@ -5,6 +5,7 @@ module Math where
 vectorAdd :: [Int] -> [Int] -> [Int]
 vectorAdd v1 v2 = [x + y | (x , y) <- zip v1 v2]
 
+
 a_Mean :: [Float] -> Int -> Float
 a_Mean x i = sum x /
     fromIntegral i :: Float

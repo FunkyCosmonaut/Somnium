@@ -1,27 +1,34 @@
 module Main where
-
 import Math
 import Window
 import Keyboard
 import qualified SDL
+import qualified Graphics.Rendering.OpenGL as GL
 import Control.Monad (unless)
 
-mainLoop :: IO ()
-mainLoop = do
-    quit <- processEvents
+isQuitEvent :: SDL.Event -> Bool
+isQuitEvent event = case SDL.eventPayload event of
+    SDL.QuitEvent -> True
+    _ -> False
+
+mainLoop :: SDL.Window -> IO ()
+mainLoop window = do
+    events <- SDL.pollEvents
+    let quit = any (isQuitEvent) events
     unless quit $ do
+        GL.clear [GL.ColorBuffer]
+        GL.clearColor GL.$= GL.Color4 1 1 0 1
+        SDL.glSwapWindow window
         --Game logic here
-        mainLoop
+        mainLoop window
 
 main :: IO ()
 main = do
-    let vector1 = [1, 2, 3, 5]
-    let vector2 = [4, 5, 6]
-    let result = a_Mean [5.0, 7.2, 8.3] 3
-    let sumVector = vectorAdd vector1 vector2
 
     somnium <- createWindow
-    mainLoop
+    glContext <- SDL.glCreateContext somnium
+
+    mainLoop(somnium)
     SDL.destroyWindow somnium
     SDL.quit
 
